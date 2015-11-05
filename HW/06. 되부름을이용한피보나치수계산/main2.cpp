@@ -15,7 +15,6 @@
 using namespace std;
 
 int fib(int x);
-int fib_result[31] = {0};
 
 int main(void)
 {
@@ -34,8 +33,7 @@ int main(void)
 	for(int i=0; i<cases; i++)
 	{
 		inStream >> value;
-		fib_result[value] = fib(value);
-		cout << fib_result[value] << endl;
+		cout << fib(value) << endl;
 	}
 }
 
@@ -45,10 +43,7 @@ int fib(int x)
 		return x;
 
 	else
-	{
-		if(fib_result[x] != 0) {
-			return fib_result[x]; }
-		else {
-			return fib(x-1)+fib(x-2); }
-	}
+		return fib(x-1)+fib(x-2);
 }
+
+//배열 만들어 피보나치 값을 저장해놓으면 시간을 절약할 수 있다.
