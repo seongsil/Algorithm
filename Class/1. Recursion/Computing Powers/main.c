@@ -1,3 +1,4 @@
+//20133277 Seongsil Heo
 #include <stdio.h>
 
 //p(x,n) -= x^n
