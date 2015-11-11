@@ -1,7 +1,8 @@
+//20133277 Seongsil Heo
 #include <stdio.h>
 #include <string.h>
 
-//1 return �ϸ� palindrome
+//1 return ÇÏ¸é palindrome
 int checkPalindrome(char str[],int first, int last)
 {
 	if(first >= last)
