@@ -1,21 +1,22 @@
-/* ´ÙÀ½°ú °°ÀÌ ¿©·¯ ´ÜÀ§ÀÇ µ¿ÀüµéÀÌ ÁÖ¾îÁ® ÀÖÀ» ¶§ °Å½º¸§µ·À» °¡Àå ÀûÀº ¼öÀÇ µ¿ÀüÀ¸·Î
-±³È¯ ÇØÁÖ·Á¸é ¾î¶»°Ô ÁÖ¸é µÇ´Â°¡?
-µ¿Àü ´ÜÀ§: 50¿ø, 12¿ø, 5¿ø, 1¿ø
-°Å½º¸§µ· ±İ¾×: 15¿ø
+//20133277 Seongsil Heo
+/* ë‹¤ìŒê³¼ ê°™ì´ ì—¬ëŸ¬ ë‹¨ìœ„ì˜ ë™ì „ë“¤ì´ ì£¼ì–´ì ¸ ìˆì„ ë•Œ ê±°ìŠ¤ë¦„ëˆì„ ê°€ì¥ ì ì€ ìˆ˜ì˜ ë™ì „ìœ¼ë¡œ
+êµí™˜ í•´ì£¼ë ¤ë©´ ì–´ë–»ê²Œ ì£¼ë©´ ë˜ëŠ”ê°€?
+ë™ì „ ë‹¨ìœ„: 50ì›, 12ì›, 5ì›, 1ì›
+ê±°ìŠ¤ë¦„ëˆ ê¸ˆì•¡: 15ì›
 */
 
 #include <stdio.h>
 
-int coins[5] = {1,5,10,21,25}; //´ÜÀ§µ¿Àü
-int coinsUsed[5]; //°Å½º¸§µ·¿¡¼­ °¡Àå ÀûÀº ¼öÀÇ µ¿ÀüÀÇ °¹¼ö
-int lastCoin[5]; //¸¶Áö¸·¿¡ »ç¿ëµÈ µ¿Àü
+int coins[5] = {1,5,10,21,25}; //ë‹¨ìœ„ë™ì „
+int coinsUsed[5]; //ê±°ìŠ¤ë¦„ëˆì—ì„œ ê°€ì¥ ì ì€ ìˆ˜ì˜ ë™ì „ì˜ ê°¯ìˆ˜
+int lastCoin[5]; //ë§ˆì§€ë§‰ì— ì‚¬ìš©ëœ ë™ì „
 
 void coinExchange(int change);
 void printResult(int change);
 
 int main(void)
 {
-	int change = 12; //°Å½º¸§µ· 21¿øÀ» ¸¸µé¾î º¸ÀÚ.
+	int change = 12; //ê±°ìŠ¤ë¦„ëˆ 21ì›ì„ ë§Œë“¤ì–´ ë³´ì.
 	coinExchange(change);
 	printResult(change);
 
@@ -24,7 +25,7 @@ int main(void)
 void coinExchange(int change)
 {
 	int cents;
-    //"Bottom up" ¹æ½ÄÀ» ¾µ °ÍÀÌ¹Ç·Î °Å½º¸§µ· 21¿øÀ» ±¸ÇÏ±â À§ÇØ 1¿øºÎÅÍ Â÷·Ê´ë·Î °ª ±¸ÇÏ±â
+    //"Bottom up" ë°©ì‹ì„ ì“¸ ê²ƒì´ë¯€ë¡œ ê±°ìŠ¤ë¦„ëˆ 21ì›ì„ êµ¬í•˜ê¸° ìœ„í•´ 1ì›ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ ê°’ êµ¬í•˜ê¸°
 	for(cents = 1; cents <= change; cents++) 
 	{
 		int minCoins = cents; int newCoin = 1;
@@ -33,7 +34,7 @@ void coinExchange(int change)
 		{
 			if(coins[j] > cents)
 				continue;
-			//min(C[k-25=],C[k-21],C[k-10],C[k-3],C[k-1]) + 1 ÆĞ
+			//min(C[k-25=],C[k-21],C[k-10],C[k-3],C[k-1]) + 1 íŒ¨
 			if(coinsUsed[cents-coins[j]] + 1 < minCoins) 
 			{
 				minCoins = coinsUsed[cents-coins[j]] + 1;
@@ -49,7 +50,7 @@ void printResult(int change)
 {
 	if(change > 0)
 	{
-		printf("ÃÖ¼Òµ¿ÀüÀÇ °³¼ö : %d\n", coinsUsed[change]);
-		printf("ÃÖ¼Ò°ªÀ¸·Î ¼±ÅÃµÈ µ¿Àü : %d\n", lastCoin[change]);
+		printf("ìµœì†Œë™ì „ì˜ ê°œìˆ˜ : %d\n", coinsUsed[change]);
+		printf("ìµœì†Œê°’ìœ¼ë¡œ ì„ íƒëœ ë™ì „ : %d\n", lastCoin[change]);
 	}
 }
