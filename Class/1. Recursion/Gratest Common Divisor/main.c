@@ -1,3 +1,4 @@
+//20133277 Seongsil Heo
 #include <stdio.h>
 
 int gcd(int a,int b)
