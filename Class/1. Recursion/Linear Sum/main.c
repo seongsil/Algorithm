@@ -1,3 +1,4 @@
+//20133277 Seongsil Heo
 #include <stdio.h>
 
 int sum(int arr[],int n)
